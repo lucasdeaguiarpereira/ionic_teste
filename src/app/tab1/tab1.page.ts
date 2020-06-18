@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  veiculos: any;
+  
+  
 
+  constructor(private apiService: ApiService) {}
+
+  ionViewDidEnter(){
+    this.apiService.getMarcas().subscribe((data)=>{
+      this.veiculos = data;
+    });
+  }
+  
+  
 }
