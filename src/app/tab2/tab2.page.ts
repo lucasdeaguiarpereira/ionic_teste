@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  veiculo: any;
+  placa: any;
+  
+  constructor(private apiService: ApiService) {}
+  
+  
+  buscarPlaca(){
+    this.apiService.getVeiculosPlaca(this.placa).subscribe((data)=>{
+      this.veiculo = data;
+    });
+  }
+
+  
 
 }

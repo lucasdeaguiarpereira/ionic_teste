@@ -15,18 +15,57 @@
 
   <ion-grid>
     <ion-row class="ion-align-items-center">
-      <ion-col>
-      </ion-col>
-      <ion-col class="ion-align-self-center">
-        <ion-button color="success">Buscar Por Placa</ion-button>      
-        <ion-button href="../tabs/tab1" color="success">Listar Veiculos Na Oficina</ion-button>
-      </ion-col>
-      <ion-col>
-      </ion-col>
+      <form (ngSubmit)="buscarPlaca()">
+        <ion-item>
+          <ion-label>Placa</ion-label>
+          <ion-input type="text" [(ngModel)]="placa" name="numero"></ion-input>
+        </ion-item>
+        <ion-button type="submit" color="success">Buscar</ion-button>      
+      </form>
     </ion-row>
   </ion-grid>
-  
-  
-
-  
+  <ion-card *ngFor="let carro of veiculo; let i = index">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          Proprietário:
+        </ion-col>
+        <ion-col>
+          {{carro.nome}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Placa:
+        </ion-col>
+        <ion-col>
+          {{carro.placa}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Marca:
+        </ion-col>
+        <ion-col>
+          {{carro.marca}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Modelo:
+        </ion-col>
+        <ion-col>
+          {{carro.modelo}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          Ano:
+        </ion-col>
+        <ion-col>
+          {{carro.ano}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

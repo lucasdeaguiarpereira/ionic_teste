@@ -9,13 +9,11 @@ import { ApiService } from '../api.service';
 export class Tab1Page {
 
   veiculos: any;
-  
-  
 
   constructor(private apiService: ApiService) {}
 
   ionViewDidEnter(){
-    this.apiService.getMarcas().subscribe((data)=>{
+    this.apiService.getVeiculos().subscribe((data)=>{
       this.veiculos = data;
     });
   }
