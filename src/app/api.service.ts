@@ -17,4 +17,8 @@ export class ApiService {
     return this.httpClient.get(this.URL_API+"/carros/"+placa,{ headers:{token:this.API_KEY }});
   }
 
+  getVeiculosStatus(){
+    return this.httpClient.get(this.URL_API+"/status/",{ headers:{token:this.API_KEY }});
+  }
+
 }
